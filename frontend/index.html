@@ -1,0 +1,23 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5. -->
+<html lang="en"> <!-- Define el idioma del documento como inglés. -->
+<head>
+  <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura la vista para dispositivos móviles. -->
+  <title>Bookpad</title> <!-- Título de la página que aparece en la pestaña del navegador. -->
+  <link rel="stylesheet" href="styles.css"> <!-- Enlaza el archivo CSS para el estilo de la página. -->
+</head>
+<body>
+  <div class="container"> <!-- Contenedor principal para el formulario de registro. -->
+    <h1>Register</h1> <!-- Título de la página de registro. -->
+    <form id="registerForm"> <!-- Formulario de registro con un ID para su manejo en JavaScript. -->
+      <input type="text" id="firstName" placeholder="First Name" required> <!-- Campo de entrada para el primer nombre. -->
+      <input type="text" id="lastName" placeholder="Last Name" required> <!-- Campo de entrada para el apellido. -->
+      <input type="email" id="email" placeholder="Email" required> <!-- Campo de entrada para el correo electrónico. -->
+      <input type="password" id="password" placeholder="Password" required> <!-- Campo de entrada para la contraseña. -->
+      <button type="submit">Register</button> <!-- Botón para enviar el formulario. -->
+    </form>
+    <p id="responseMessage"></p> <!-- Párrafo para mostrar mensajes de respuesta. -->
+  </div>
+  <script src="script.js"></script> <!-- Enlaza el archivo JavaScript para manejar la lógica del formulario. -->
+</body>
+</html>
