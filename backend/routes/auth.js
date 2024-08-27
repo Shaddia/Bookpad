@@ -5,14 +5,20 @@ const nodemailer = require('nodemailer'); // Importa Nodemailer para enviar corr
 const crypto = require('crypto'); // Importa el módulo crypto para generar códigos de verificación únicos.
 const bcrypt = require('bcrypt'); // Importa bcrypt para el hash de contraseñas.
 const { body, validationResult } = require('express-validator'); // Importa express-validator para validar los datos de entrada.
-
-const transporter = nodemailer.createTransport({ // Configura el transportador de Nodemailer para enviar correos electrónicos.
-  service: 'gmail', // Usa el servicio de Gmail para enviar correos.
+require('dotenv').config();
+const transporter = nodemailer.createTransport({
+  host: 'smtp-mail.outlook.com',
+  port: 587, // Puerto TLS estándar
+  secure: false, // Debe ser 'false' para puerto 587
   auth: {
-    user: process.env.EMAIL_USER, // Usuario del correo electrónico, obtenido de las variables de entorno.
-    pass: process.env.EMAIL_PASS, // Contraseña del correo electrónico, obtenida de las variables de entorno.
+    user: process.env.EMAIL_USER, // Tu correo de Outlook
+    pass: process.env.EMAIL_PASS, // Tu contraseña de Outlook
+  },
+  tls: {
+    rejectUnauthorized: false, // Esto puede ayudar a evitar ciertos errores de certificado
   },
 });
+
 
 router.post('/register', // Define una ruta POST para el registro de usuarios.
   body('firstName').notEmpty(), // Valida que el campo 'firstName' no esté vacío.
